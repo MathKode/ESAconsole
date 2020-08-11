@@ -1,6 +1,6 @@
 # ESAconsole
 
-ATTENTION : c'est en court de codage...
+ATTENTION : c'est en court de codage et de correction d'orthographe...
 
 Terminal secondaire pour linux qui automatise les commandes de pentestings et répertories des programmes
 Pour lancer le programme :
