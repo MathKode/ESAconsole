@@ -1,7 +1,7 @@
 chemin=$(pwd)
 cd
 mkdir ESAresult
-cd $pwd
+cd $chemin
 
 echo " _____ ____    _                             _"     
 echo "| ____/ ___|  / \   ___ ___  _ __  ___  ___ | |___" 
