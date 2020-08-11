@@ -1,4 +1,7 @@
 # ESAconsole
+
+ATTENTION : c'est en court de codage...
+
 Terminal secondaire pour linux qui automatise les commandes de pentestings et répertories des programmes
 Pour lancer le programme :
 Déplacer vous dans le dossier ESAconsole (cd Documents/ESAconsole)
