@@ -36,6 +36,7 @@ while [ True ]; do
 		cd USRscan
 		chmod +x USRscan.sh
 		./USRscan.sh
+		cd ..
 		break
 	done
 	while [ "$com" = "ESA -P" ]; do
@@ -43,6 +44,33 @@ while [ True ]; do
 		cd "OPTscan"
 		chmod +x "OPT.sh"
 		./OPT.sh
+		cd ..
+		break
+	done
+	while [ "$com" = "ESA -W" ]; do
+		echo LANCEMENT DE wificrack
+		cd Wificrack
+		chmod +x wificrack.sh
+		./wificrack.sh
+		cd ..
+		break
+	done
+	while [ "$com" = "ESA -S -R" ]; do
+		echo Le résultat du script USRscan :
+		cd USRscan
+		echo ______________________________________
+		cat USRscanFI.txt
+		echo ______________________________________
+		cd ..
+		break
+	done
+	while [ "$com" = "ESA -P -R" ]; do
+		echo Le résultat du script OPT :
+		cd OPTscan
+		echo ______________________________________
+		cat Scan_ports.txt
+		echo ______________________________________
+		cd ..
 		break
 	done
 	while [ "$com" = "ESA --HELP" ]; do
@@ -64,7 +92,7 @@ while [ True ]; do
 			echo "ESAresult (qui a été crée dans votre répertoire courant"
 			echo
 			echo "____________________COMMANDES____________________"
-			echo "vous pouvez les ecrire en Majuscule ou en minuscule MAIS"
+			echo "Vous pouvez les ecrire en Majuscule ou en minuscule MAIS"
 			echo "nous recommendons la minuscule..."
 			echo "	esa -s        | Ouvre l'outil USRscan : qui permet de"
 			echo "                | scanner un réseau (qui est connecté  "
@@ -82,7 +110,13 @@ while [ True ]; do
 			echo "				  | permet de scanner les ports d'un ou de"
 			echo "				  | plusieurs pc (adresse ip). OPEN/CLOSE"
 			echo
-			echo "	exit          | permet de quitter le programme  "
+			echo "	exit          | Permet de quitter le programme "
+			echo
+			echo "  esa [commande] -r    | Permet d'afficher le resultat "
+			echo "                       | de la commande"
+			echo "  Exemple : esa -s -r affiche le reultat de USRscan"
+			echo
+			echo "  esa -w        | Ouvre l'outil wificrack"
 			echo "////////////////////////////////////////////////////////"
 			break
 	done
