@@ -39,6 +39,24 @@ while [ True ]; do
 		cd ..
 		break
 	done
+	while [ "$com" = "ESA -VV" ]; do
+		echo LANCEMENT DE Nmap script vuln
+		cd Nmapv
+		chmod +x vuln.sh
+		echo "0" > choix.txt
+		./vuln.sh
+		cd ..
+		break
+	done
+	while [ "$com" = "ESA -VU" ]; do
+		echo LANCEMENT DE Nmap script vulners
+		cd Nmapv
+		chmod +x vulners.sh
+		echo "0" > choix.txt
+		./vulners.sh
+		cd ..
+		break
+	done
 	while [ "$com" = "ESA -P" ]; do
 		echo LANCEMENT DE OPT
 		cd "OPTscan"
@@ -73,6 +91,24 @@ while [ True ]; do
 		cd ..
 		break
 	done
+	while [ "$com" = "ESA -VV -R" ]; do
+		echo Le résultat du script NMAP script vuln :
+		cd Nmapv
+		echo ______________________________________
+		cat NMAPvuln.txt
+		echo ______________________________________
+		cd ..
+		break
+	done
+	while [ "$com" = "ESA -VU -R" ]; do
+		echo Le résultat du script NMAP script vulners :
+		cd Nmapv
+		echo ______________________________________
+		cat NMAPvulners.txt
+		echo ______________________________________
+		cd ..
+		break
+	done
 	while [ "$com" = "ESA --HELP" ]; do
 			echo "////////////////////////////////////////////////////////"
 			echo "ESAconsole est un programme codé par BiMathAx STUDIO."
@@ -103,7 +139,7 @@ while [ True ]; do
 			echo "				  | les script arg :"
 			echo
 			echo "            -vv : Utilise : nmap --script vuln   " 
-			echo "            -vvulners : Utilise : nmap --script nmap-"
+			echo "            -vu : Utilise : nmap --script nmap-"
 			echo "							  vulners"
 			echo
 			echo "	esa -p 		  | Ouvre l'outil OPT (open port) : qui "
