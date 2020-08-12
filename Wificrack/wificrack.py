@@ -5,6 +5,7 @@ file.close()
 print("Craqueur PYTHON")
 """
 find = input('mot de passe : ')
+
 lettre = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
 nombre = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
@@ -36,7 +37,7 @@ while i :
 			final.append(str(lf))
 		position = position + 1
 	mot = ''.join(final)
-	
+	print(mot, end="\r")
 	if mot == find :
 		i = False
 print('le mot de passe est : ' + mot )
