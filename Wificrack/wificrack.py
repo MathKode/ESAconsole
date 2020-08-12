@@ -60,6 +60,12 @@ else :
 			print('')
 	l7 = l6 + l5
 	lettre = list(set(l7))
+l = input("Quelle lettres veux tu enlever (lettre1_lettre2 ...) : "
+enlever = l.split('_')
+for i in enlever
+	if i in lettre :
+		liste = lettre.replace(i,'')
+		lettre = liste
 print(lettre)
 nombre = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 i = True
