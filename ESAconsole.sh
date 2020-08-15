@@ -22,7 +22,8 @@ while [ $choix = O ]; do
 	sudo apt install fping
 	sudo apt install nmap
 	sudo apt install git
-	sudo apt update
+	sudo apt install dict
+	sudo apt-get update
 
 	echo "////INSATLATION DES APTS TERMINE -> répondez n les prochaines fois ////"
 	break
